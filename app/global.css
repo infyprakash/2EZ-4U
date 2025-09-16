@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global scrollbar hiding */
+html,
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+td {
+  border: solid grey;
+  padding: 0.3rem;
+}
+tr {
+  border: solid grey;
+}
+ul {
+  margin: 1rem;
+}
+hr {
+  display: none;
+}
+/* Add these styles to your globals.css file if you prefer */
+
+:root {
+  --sidebar-width: 320px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+}
+
+.main-content {
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+}
